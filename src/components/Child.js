@@ -2,6 +2,7 @@ import React from "react";
 
 export default class Child extends React.Component {
 
+  //updates the parent
   handleClick = () => {
     this.props.handleRating(10)
 

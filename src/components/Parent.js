@@ -26,7 +26,7 @@ export default class Parent extends React.Component {
     handleCommentSubmit = () => {
         this.setState({
             //spread operator
-            comments: [ this.state.comment]
+            comments: [...this.state.comments, this.state.comment]
         })
     }
 
