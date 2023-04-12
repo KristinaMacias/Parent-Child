@@ -6,30 +6,34 @@ export default class Parent extends React.Component {
     constructor(props) {
         super(props);
 
-        // state
+        // state variables
         this.state = {
             //state variables
-            comment: "",
-            comments: [], //
-            rating: 1
+            comment: "", //string (captured in handCommentChange)
+            comments: [], //hold multiple strings (captured in handleCommentSubmit)
+            rating: 5
         }
     }
+    // const [comment, setComment] = useState('')
 
-    // handle the event change
+    // handle the event change (what the user types) 
     handleCommentChange = (e) => {
-        this.setState({
-            comment: e.target.value
+        this.setState({ //setState is a built-in method
+            comment: e.target.value //updates the state variable "comment"
         })
     } 
 
-    // handle the submit
-    handleCommentSubmit = () => {
-        this.setState({
-            //spread operator
-            comments: [...this.state.comments, this.state.comment]
+    // handle the submit (button click) to update the state array
+    handleCommentSubmit = () => { //set state is a built-in method
+        this.setState({ //setState is built in
+            
+            comments: [ ...this.state.reviews, this.state.comment]
+
+            //spread operator will spread out the contents of the existing array, and add the state variable, comment, to the back of the state array
         })
     }
 
+    // function that gets passed to a child as props
     handleRating = (newState) => {
         this.setState({
             rating: newState
@@ -48,8 +52,8 @@ export default class Parent extends React.Component {
 
 
                 <Child 
-                comments={this.state.comments}
-                handleRating={this.handleRating}
+                comments={this.state.comments} //the state array
+                handleRating={this.handleRating} //the function to update star rating
                  />
 
             </div>

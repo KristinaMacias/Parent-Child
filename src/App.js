@@ -1,7 +1,6 @@
 import "./App.css";
-import { useState } from "react";
-
 import Parent from "./components/Parent";
+import Todos from "./components/Todos";
 
 function App() {
 
@@ -10,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Parent />
+      <Todos />
     </div>
   );
 }
